@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Info = ({ age, weight, height, activityLevel }) => {
-
     return (
         <div class="userInput">
             <h3>User Input</h3>

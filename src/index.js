@@ -17,7 +17,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 serviceWorker.unregister();
 
 /*///////
-/////////jQuery
+/////////jQuery Animations
 ///////*/
 $(document).scroll(function() {
     var y = $(this).scrollTop()

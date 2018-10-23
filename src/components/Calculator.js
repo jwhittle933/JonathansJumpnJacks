@@ -9,30 +9,33 @@ const Calulator = ({ userAge,
                     clear,
                     age, weight, height, activity }) => {
     return (
-        <div class="table" id="tracker">
-            <table class="table-fill">
+        <div className="table" id="tracker">
+            <table className="table-fill">
                 <thead>
                     <tr>
-                        <th class="text-left">*Enter your information</th>
-                        <th class="text-left"><Button bsStyle="danger" onClick={clear}>Clear</Button></th>
+                        <th>*Enter your information</th>
+                        <th>
+                            <Button bsStyle="danger" onClick={clear}>Clear</Button>
+                            <Button bsStyle="success" onClick={clear}>Next</Button>
+                        </th>
                     </tr>
                 </thead>
-                <tbody class="table-hover">
+                <tbody>
                     <tr>
-                        <td class="text-left">Age</td>
-                        <td class="text-left"><input type="text" value={age} onChange={ e => userAge(e.target.value)} /></td>
+                        <td>Age</td>
+                        <td><input type="text" value={age} onChange={ e => userAge(e.target.value)} /></td>
                     </tr>
                     <tr>
-                        <td class="text-left">Weight</td>
-                        <td class="text-left"><input type="text" value={weight} onChange={ e => userWeight(e.target.value)} /></td>
+                        <td>Weight</td>
+                        <td><input type="text" value={weight} onChange={ e => userWeight(e.target.value)} /></td>
                     </tr>
                     <tr>
-                        <td class="text-left">Height</td>
-                        <td class="text-left"><input type="text" value={height} onChange={ e => userHeight(e.target.value)} /></td>
+                        <td>Height (in.)</td>
+                        <td><input type="text" value={height} onChange={ e => userHeight(e.target.value)} /></td>
                     </tr>
                     <tr>
-                        <td class="text-left">Activity Level</td>
-                        <td class="text-left"><input type="text" value={activity} onChange={ e => userActivityLevel(e.target.value)} /></td>
+                        <td>Activity Level (1.0-2.0)</td>
+                        <td><input type="text" value={activity} onChange={ e => userActivityLevel(e.target.value)} /></td>
                     </tr>
                 </tbody>
             </table>
