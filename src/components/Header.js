@@ -1,20 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import { Button } from 'react-bootstrap'
 
 const Header = ({title}) => {
     return (
-          <header className="App-header">
-            <h1>
-             {title}
-            </h1>
-            <a
-              className="App-link"
-              href="#tracker"
-              rel="noopener noreferrer"
-            >
-              Start the Tracker
-            </a>
-          </header>
+        <header>
+          <h1>{title}</h1>
+          <p>
+            <Button bsStyle="secondary"
+                    className="App-link"
+                    href="#tracker"
+                    rel="noopener noreferrer" >Start the Tracker</Button>
+          </p>
+        </header>
     )
   }
 

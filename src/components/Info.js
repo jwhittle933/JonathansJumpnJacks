@@ -2,15 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Info = ({ age, weight, height, activityLevel }) => {
+
     return (
-        <div className="stats-box">
-            <ul>
-                <li>Age: {age}</li>
-                <li>Weight: {weight}</li>
-                <li>Height: {height}</li>
-                <li>Activity Level: {activityLevel}</li>
-                <li> BMR { Math.round((66+(6.3 * weight) + (12.9 * height) - (6.8 * age)) * activityLevel) }</li>
-            </ul>
+        <div class="userInput">
+            <h3>User Input</h3>
+            <p>Age: {age}</p>
+            <p>Weight: {weight}</p>
+            <p>Height: {height}</p>
+            <p>Activity Level: {activityLevel}</p>
+            <h3><strong>BMR</strong> { Math.round((66+(6.3 * weight) + (12.9 * height) - (6.8 * age)) * activityLevel) }</h3>
         </div>
     )
 }

@@ -1,36 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import { Button } from 'react-bootstrap'
 
-const Calulator = ({ userAge, userWeight, userHeight, userActivityLevel}) => {
+const Calulator = ({ userAge,
+                    userWeight,
+                    userHeight,
+                    userActivityLevel,
+                    clear,
+                    age, weight, height, activity }) => {
     return (
-        <div className="App" id="tracker">
-            <div className="table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col"><p>*Please enter your information</p></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row"><label>Age</label></th>
-                            <td><input type="text" onChange={ e => userAge(e.target.value)} /></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><label>Weight</label></th>
-                            <td><input type="text" onChange={ e => userWeight(e.target.value)}/></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><label>Height(inches)</label></th>
-                            <td><input type="text"  onChange={ e => userHeight(e.target.value)}/></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><label>Activity Level (1.0 - 2.0)</label></th>
-                            <td><input type="text"  onChange={ e => userActivityLevel(e.target.value)} /></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="table" id="tracker">
+            <table class="table-fill">
+                <thead>
+                    <tr>
+                        <th class="text-left">*Enter your information</th>
+                        <th class="text-left"><Button bsStyle="danger" onClick={clear}>Clear</Button></th>
+                    </tr>
+                </thead>
+                <tbody class="table-hover">
+                    <tr>
+                        <td class="text-left">Age</td>
+                        <td class="text-left"><input type="text" value={age} onChange={ e => userAge(e.target.value)} /></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">Weight</td>
+                        <td class="text-left"><input type="text" value={weight} onChange={ e => userWeight(e.target.value)} /></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">Height</td>
+                        <td class="text-left"><input type="text" value={height} onChange={ e => userHeight(e.target.value)} /></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">Activity Level</td>
+                        <td class="text-left"><input type="text" value={activity} onChange={ e => userActivityLevel(e.target.value)} /></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     )
 }

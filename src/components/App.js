@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 
-
 import Header from './Header'
 import Calulator from './Calculator'
 import Info from './Info'
 
 class App extends Component {
   state = {
-    age: 0,
-    weight: 0,
-    height: 0,
-    activityLevel: 0
+    age: "",
+    weight: "",
+    height: "",
+    activityLevel: ""
   }
   userAge = (alpha) => {
     this.setState( () => {
@@ -40,6 +39,16 @@ class App extends Component {
       }
     })
   }
+  clearUserInput = () => {
+    this.setState( () => {
+      return {
+        age: "",
+        weight: "",
+        height: "",
+        activityLevel: ""
+      }
+    })
+  }
 
   render() {
     return (
@@ -62,7 +71,13 @@ class App extends Component {
           userWeight={this.userWeight}
           userHeight={this.userHeight}
           userActivityLevel={this.userActivityLevel}
+          clear={this.clearUserInput}
+          age={this.state.age}
+          weight={this.state.weight}
+          height={this.state.height}
+          activity={this.state.activityLevel}
         />
+        {/* Macros Calculator Component */}
       </div>
     );
   }

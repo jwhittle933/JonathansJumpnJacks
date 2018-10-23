@@ -1,9 +1,13 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
 import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+window.jQuery = $;
+window.$ = $;
+global.jQuery = $;
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -11,3 +15,15 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+/*///////
+/////////jQuery
+///////*/
+$(document).scroll(function() {
+    var y = $(this).scrollTop()
+    if (y > 300){
+        $('.userInput').fadeIn()
+    } else {
+        $('.userInput').fadeOut()
+    }
+})
