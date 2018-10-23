@@ -1,36 +1,11 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types'
-import { Button } from 'react-bootstrap'
+import React from 'react'
 
-class Header extends Component {
-  scrollTo = () => {
-    window.scroll({
-      top: 500,
-      behavior: "smooth"
-    })
-  }
-
-  render (){
-    const { title } = this.props
+const Header = () => {
     return (
-        <header>
-          <h1>{title}</h1>
-          <p>
-            <Button bsStyle="secondary"
-                    className="App-link"
-                    rel="noopener noreferrer"
-                    onClick={this.scrollTo} >Start the Tracker</Button>
-          </p>
+        <header id="header">
+            <h2>&lt; Jonathan's Jump'n Jacks &gt;</h2>
         </header>
-    )}
-  }
-
-//PropTypes for use in dev mode only
-Header.propTypes = {
-    title: PropTypes.string
-}
-Header.defaultProps = {
-  title: "Jonathan's Jump'n Jacks"
+    )
 }
 
 export default Header

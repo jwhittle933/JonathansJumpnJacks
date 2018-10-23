@@ -23,7 +23,9 @@ $(document).scroll(function() {
     var y = $(this).scrollTop()
     if (y > 300){
         $('.userInput').fadeIn()
+        $('#header').slideDown()
     } else {
         $('.userInput').fadeOut()
+        $('#header').slideUp()
     }
 })
