@@ -11,7 +11,7 @@ header h2 {
   font-family: Menlo;
   font-size: 1.25em;
 }
-header {
+.header {
   display: none;
   opacity: .9;
   position:fixed;
@@ -24,6 +24,11 @@ header {
   color: white;
   font-family: Calibri light;
   border-bottom: 2px solid #3F5866;
+  z-index: 2;
+}
+.float {
+  float: right;
+  clear: right;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -64,6 +69,10 @@ code {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
 }
 /*
+* Controls
+*/
+
+/*
 *
 * Table Styles
 *
@@ -84,6 +93,17 @@ code {
   width: 100vw;
   padding: 50px;
   min-height: 75vh;
+}
+.goals-table {
+  display: inline-block;
+  background-color: #D8D0C5;
+  border-bottom: 2px solid black;
+  width: 100vw;
+  padding: 50px;
+  min-height: 75vh;
+}
+.center {
+  text-align: center;
 }
 .table-fill {
   background: white;

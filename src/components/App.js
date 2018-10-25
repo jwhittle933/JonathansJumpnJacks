@@ -4,6 +4,7 @@ import Header from './Header'
 import LandingPage from './LandingPage'
 import Calulator from './Calculator'
 // import Info from './Info'
+import Goals from './Goals'
 import Macros from './Macros'
 
 
@@ -13,40 +14,28 @@ class App extends Component {
     weight: "",
     height: "",
     activityLevel: "",
-    bmr: ""
+    fitnessGoal: "",
+    meals: ""
+
   }
-  userAge = (alpha) => {
+  userInput = (alpha, beta) => {
     this.setState( () => {
       return {
-        age: alpha
+        [alpha]: beta
       }
     })
   }
-  userWeight = (alpha) => {
+  fitnessGoalSelection = (alpha) => {
     this.setState( () => {
       return {
-        weight: alpha
+        fitnessGoal: alpha
       }
     })
   }
-  userHeight = (alpha) => {
+  mealsSelection = (alpha) => {
     this.setState( () => {
       return {
-        height: alpha
-      }
-    })
-  }
-  userActivityLevel = (alpha) => {
-    this.setState( () => {
-      return {
-        activityLevel: alpha
-      }
-    })
-  }
-  userBmr = () => {
-    this.setState( (alpha) => {
-      return {
-        activityLevel: alpha
+        meals: alpha
       }
     })
   }
@@ -62,14 +51,17 @@ class App extends Component {
   }
   next = () => {
     window.scroll({
-      top: 1200,
+      top: 1100,
       behavior: "smooth"
     })
   }
   render() {
     return (
       <div>
-        <Header />
+        <Header
+          next={this.next}
+          clear={this.clearUserInput}
+        />
         <LandingPage
           title="Jonathan's Jump'n Jacks"
           age={this.state.age}
@@ -78,16 +70,9 @@ class App extends Component {
           activityLevel={this.state.activityLevel}
           next={this.next}
         />
-        {/* <Info
-              age={this.state.age}
-              weight={this.state.weight}
-              height={this.state.height}
-              activityLevel={this.state.activityLevel}
-              userBmr={this.userBmr}
-        /> */}
         <Calulator
           userAge={this.userAge}
-          userWeight={this.userWeight}
+          userInput={this.userInput}
           userHeight={this.userHeight}
           userActivityLevel={this.userActivityLevel}
           clear={this.clearUserInput}
@@ -97,7 +82,18 @@ class App extends Component {
           height={this.state.height}
           activity={this.state.activityLevel}
         />
-        <Macros />
+        <Goals
+          fitnessGoal={this.fitnessGoalSelection}
+          meals={this.mealsSelection}
+        />
+        <Macros
+          age = {this.state.age}
+          height = {this.state.height}
+          weight = {this.state.weight}
+          activity = {this.state.activityLevel}
+          next = {this.next}
+          clear={this.clearUserInput}
+        />
       </div>
     )
   }

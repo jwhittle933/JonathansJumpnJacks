@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { Button } from 'react-bootstrap'
 
-class Header extends Component {
+class LandingPage extends Component {
   scrollTo = () => {
     window.scroll({
       top: 575,
@@ -25,11 +25,11 @@ class Header extends Component {
   }
 
 //PropTypes for use in dev mode only
-Header.propTypes = {
+LandingPage.propTypes = {
     title: PropTypes.string
 }
-Header.defaultProps = {
+LandingPage.defaultProps = {
   title: "Jonathan's Jump'n Jacks"
 }
 
-export default Header
+export default LandingPage
