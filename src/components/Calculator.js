@@ -39,7 +39,7 @@ class Calulator extends Component {
                     </tr>
                 </tbody>
             </table>
-            {/* Create Component for */}
+            {/* Create Component for BMR Button*/}
         </div>
     )}
 }

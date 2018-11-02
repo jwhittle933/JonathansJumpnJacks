@@ -6,18 +6,31 @@ import Calulator from './Calculator'
 // import Info from './Info'
 import Goals from './Goals'
 import Macros from './Macros'
+import ErrorBoundary from './ErrorBoundary'
 
 
 class App extends Component {
-  state = {
+  constructor() {
+    super()
+    this.state = {
     age: "",
     weight: "",
     height: "",
     activityLevel: "",
+    bmr: "",
     fitnessGoal: "",
     meals: ""
+  }}
 
+  fitnessCaluclator = (weight, height, age, activity) => {
+    let bmr = Math.round((66 + (6.3 * weight) + (12.9 * height) - (6.8 * age)) * activity)
+    this.setState( () => {
+      return {
+        bmr: bmr
+      }
+    })
   }
+
   userInput = (alpha, beta) => {
     this.setState( () => {
       return {
@@ -25,39 +38,41 @@ class App extends Component {
       }
     })
   }
-  fitnessGoalSelection = (alpha) => {
-    this.setState( () => {
+
+  fitnessGoalSelection = element => {
+    let selection = element.id
+    console.log(selection)
+    this.setState(() => {
       return {
-        fitnessGoal: alpha
+        fitnessGoal: selection
       }
     })
   }
-  mealsSelection = (alpha) => {
-    this.setState( () => {
+  mealsSelection = element => {
+    let selection = element.id
+    this.setState(() => {
       return {
-        meals: alpha
+        meals: selection
       }
     })
   }
-  clearUserInput = () => {
-    this.setState( () => {
-      return {
-        age: "",
-        weight: "",
-        height: "",
-        activityLevel: ""
-      }
-    })
-  }
+  // clearUserInput = () => {
+  //   this.setState( () => {
+  //     return {
+  //       age: "",
+  //       weight: "",
+  //       height: "",
+  //       activityLevel: ""
+  //     }
+  //   })
+  // }
   next = () => {
-    window.scroll({
-      top: 1100,
-      behavior: "smooth"
-    })
+    document.getElementById('header').scrollIntoView({ behavior: 'smooth'})
   }
   render() {
     return (
       <div>
+        <ErrorBoundary />
         <Header
           next={this.next}
           clear={this.clearUserInput}
