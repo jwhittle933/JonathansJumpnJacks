@@ -2,13 +2,31 @@ import React, { Component} from 'react';
 import PropTypes from 'prop-types'
 import { Button } from 'react-bootstrap'
 
+import BmrInfo from './BmrInfo'
 
 class Calulator extends Component {
+    constructor(){
+        super()
+        this.state = {
+            bmrShow: false
+        }
+    }
+    toggleBmr = () => {
+        let show = !this.state.bmrShow
+        this.setState(() => {
+            return {
+                bmrShow: show
+            }
+        })
+    }
     render () {
-        const { userInput, age, weight, height, activity } =  this.props
+        const { userInput, age, weight, height, activity, clear } =  this.props
+        const display = {
+            display: this.state.bmrShow === false ? 'none' : 'block'
+        }
         return (
         <div className="calulator-table" id="tracker">
-            <table className="table-fill">
+            <table className="table-fill calc">
                 <thead>
                     <tr>
                         <th>*Enter your information</th>
@@ -34,12 +52,13 @@ class Calulator extends Component {
                         <td><input type="text" value={activity} onChange={ e => userInput('activityLevel', e.target.value)} /></td>
                     </tr>
                     <tr>
-                        <td><Button bsStyle="info" bsSize= "xsmall">BMR</Button></td>
+                        <td><Button bsStyle="info" bsSize="xsmall" onClick={this.toggleBmr}>BMR</Button>
+                        <Button bsStyle="danger" bsSize="xsmall" onClick={clear}>Clear</Button></td>
                         <td><h4>{ Math.round((66 + (6.3 * weight) + (12.9 * height) - (6.8 * age)) * activity) }</h4></td>
                     </tr>
                 </tbody>
             </table>
-            {/* Create Component for BMR Button*/}
+            <BmrInfo display={display} />
         </div>
     )}
 }

@@ -6,7 +6,7 @@ class Macros extends Component {
         let bmr = Math.round((66 + (6.3 * weight) + (12.9 * height) - (6.8 * age)) * activity)
         return (
         <div className="macros-table" id="tracker">
-            <table className="table-fill">
+            <table className="table-fill macros">
                 <thead>
                     <tr>
                         <th className="center">Protein</th>

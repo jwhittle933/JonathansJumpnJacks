@@ -45,9 +45,6 @@ class App extends Component {
     let buildSelected = document.querySelector('#build').checked
     let maintainSelected = document.querySelector('#maintain').checked
     let burnSelected = document.querySelector('#burn').checked
-    console.log(buildSelected)
-    console.log(maintainSelected)
-    console.log(burnSelected)
     let buildChecked = selection === "build" ? true : false
     let maintainChecked = selection === "maintain" ? true : false
     let burnChecked = selection === "burn" ? true : false
@@ -67,34 +64,35 @@ class App extends Component {
     }
   }
   mealsSelection = element => {
-    let selection = element
+    let selection = element.value
     let threeSelected = document.querySelector('#three').checked
     let fiveSelected = document.querySelector('#five').checked
     let sevenSelected = document.querySelector('#seven').checked
-    console.log(threeSelected)
-    console.log(fiveSelected)
-    console.log(sevenSelected)
-    this.setState(() => {
-      return {
-        meals: {
-          selection: selection,
-          three: threeSelected,
-          five: fiveSelected,
-          seven: sevenSelected
+    if (!threeSelected && !fiveSelected && !sevenSelected){
+      this.setState(() => { return { meals: {} } })
+    } else {
+        this.setState(() => {
+        return {
+          meals: {
+            selection: selection,
+            three: threeSelected,
+            five: fiveSelected,
+            seven: sevenSelected
+          }
         }
+      })
+    }
+  }
+  clearUserInput = () => {
+    this.setState( () => {
+      return {
+        age: "",
+        weight: "",
+        height: "",
+        activityLevel: ""
       }
     })
   }
-  // clearUserInput = () => {
-  //   this.setState( () => {
-  //     return {
-  //       age: "",
-  //       weight: "",
-  //       height: "",
-  //       activityLevel: ""
-  //     }
-  //   })
-  // }
   next = () => {
     document.getElementById('header').scrollIntoView({ behavior: 'smooth'})
   }

@@ -20,7 +20,7 @@ class Goals extends Component {
         const { fitnessGoal, meals } = this.props
         return (
             <div className="goals-table">
-                <table className="table-fill">
+                <table className="table-fill goals">
                     <thead>
                         <tr>
                             <th className="center">Fitness Goal</th>

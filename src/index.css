@@ -30,10 +30,6 @@ header h2 {
   float: right;
   clear: right;
 }
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 .landing-page {
   text-align: center;
   background-color: #114090;
@@ -84,7 +80,18 @@ code {
   border-bottom: 2px solid black;
   width: 100vw;
   padding: 50px;
-  min-height: 75vh;
+  height: 100vh;
+}
+.bmr {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 20vw;
+  height: 50vh;
+  color:white;
+  position: absolute;
+  left: 0;
+  top: 110vh;
+  border-radius: 0 10px 10px 0;
+  text-align: center;
 }
 .macros-table{
   display: inline-block;
@@ -100,22 +107,35 @@ code {
   border-bottom: 2px solid black;
   width: 100vw;
   padding: 50px;
-  min-height: 75vh;
+  height: 100vh;
 }
 .center {
   text-align: center;
 }
-.table-fill {
+.table-fill  {
   background: white;
   border-radius:3px;
   border-collapse: collapse;
-  height: 320px;
-  margin: auto;
   max-width: 600px;
   padding:5px;
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   animation: float 5s infinite;
+}
+.calc {
+  margin-left: auto;
+  margin-right: auto;
+}
+.goals {
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.macros {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 75vh;
 }
 th {
   color:#D5DDE5;;
@@ -163,97 +183,8 @@ td {
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
   border-right: 1px solid #C1C3D1;
 }
-/*
-*
-* Macros Calulator
-*
-*/
-.macros {
-  background-color: #7B9BA6;
-  min-height: 75vh;
-}
-#pricing-table {
-  margin: auto;
-  padding: 50px;
-	text-align: center;
-	width: 800px;
-}
 
-#pricing-table .plan {
-	font: 12px 'Menlo', 'trebuchet MS', Arial, Helvetica;
-	text-shadow: 0 1px rgba(255,255,255,.8);
-	background: #fff;
-  border: 1px solid #ddd;
-	color: #333;
-	padding: 20px;
-	float: left;
-	position: relative;
-}
 
-#pricing-table #most-popular {
-	z-index: 2;
-	top: -13px;
-	border-width: 3px;
-	padding: 30px 20px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	-moz-box-shadow: 20px 0 10px -10px rgba(0, 0, 0, .15), -20px 0 10px -10px rgba(0, 0, 0, .15);
-	-webkit-box-shadow: 20px 0 10px -10px rgba(0, 0, 0, .15), -20px 0 10px -10px rgba(0, 0, 0, .15);
-	box-shadow: 20px 0 10px -10px rgba(0, 0, 0, .15), -20px 0 10px -10px rgba(0, 0, 0, .15);
-}
 
-#pricing-table .plan:nth-child(1) {
-	-moz-border-radius: 5px 0 0 5px;
-	-webkit-border-radius: 5px 0 0 5px;
-	border-radius: 5px 0 0 5px;
-}
-
-#pricing-table .plan:nth-child(4) {
-	-moz-border-radius: 0 5px 5px 0;
-	-webkit-border-radius: 0 5px 5px 0;
-	border-radius: 0 5px 5px 0;
-}
-
-/* --------------- */
-
-#pricing-table h3 {
-	font-size: 20px;
-	font-weight: normal;
-	padding: 20px;
-	margin: -20px -20px 50px -20px;
-	background-color: #eee;
-	background-image: -moz-linear-gradient(#fff,#eee);
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
-	background-image: -webkit-linear-gradient(#fff, #eee);
-	background-image: -o-linear-gradient(#fff, #eee);
-	background-image: -ms-linear-gradient(#fff, #eee);
-	background-image: linear-gradient(#fff, #eee);
-}
-
-#pricing-table .plan:nth-child(1) h3 {
-	-moz-border-radius: 5px 0 0 0;
-	-webkit-border-radius: 5px 0 0 0;
-	border-radius: 5px 0 0 0;
-}
-
-#pricing-table .plan:nth-child(4) h3 {
-	-moz-border-radius: 0 5px 0 0;
-	-webkit-border-radius: 0 5px 0 0;
-	border-radius: 0 5px 0 0;
-}
-
-/* --------------- */
-
-#pricing-table ul {
-	margin: 20px 0 0 0;
-	padding: 0;
-	list-style: none;
-}
-
-#pricing-table li {
-	border-top: 1px solid #ddd;
-	padding: 10px 0;
-}
 
 
