@@ -13,14 +13,15 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-    age: "",
-    weight: "",
-    height: "",
-    activityLevel: "",
-    bmr: "",
-    fitnessGoal: "",
-    meals: ""
-  }}
+      age: "",
+      weight: "",
+      height: "",
+      activityLevel: "",
+      bmr: "",
+      fitnessGoal: {},
+      meals: {}
+    }
+  }
 
   fitnessCaluclator = (weight, height, age, activity) => {
     let bmr = Math.round((66 + (6.3 * weight) + (12.9 * height) - (6.8 * age)) * activity)
@@ -40,19 +41,47 @@ class App extends Component {
   }
 
   fitnessGoalSelection = element => {
-    let selection = element.id
-    console.log(selection)
-    this.setState(() => {
-      return {
-        fitnessGoal: selection
-      }
-    })
+    let selection = element.value
+    let buildSelected = document.querySelector('#build').checked
+    let maintainSelected = document.querySelector('#maintain').checked
+    let burnSelected = document.querySelector('#burn').checked
+    console.log(buildSelected)
+    console.log(maintainSelected)
+    console.log(burnSelected)
+    let buildChecked = selection === "build" ? true : false
+    let maintainChecked = selection === "maintain" ? true : false
+    let burnChecked = selection === "burn" ? true : false
+    if (!buildSelected && !maintainSelected && !burnSelected){
+      this.setState(() => { return { fitnessGoal: {} } })
+    } else {
+      this.setState(() => {
+        return {
+          fitnessGoal: {
+            selection: selection,
+            build: buildChecked,
+            maintain: maintainChecked,
+            burn: burnChecked
+          }
+        }
+      })
+    }
   }
   mealsSelection = element => {
-    let selection = element.id
+    let selection = element
+    let threeSelected = document.querySelector('#three').checked
+    let fiveSelected = document.querySelector('#five').checked
+    let sevenSelected = document.querySelector('#seven').checked
+    console.log(threeSelected)
+    console.log(fiveSelected)
+    console.log(sevenSelected)
     this.setState(() => {
       return {
-        meals: selection
+        meals: {
+          selection: selection,
+          three: threeSelected,
+          five: fiveSelected,
+          seven: sevenSelected
+        }
       }
     })
   }
@@ -100,6 +129,8 @@ class App extends Component {
         <Goals
           fitnessGoal={this.fitnessGoalSelection}
           meals={this.mealsSelection}
+          fitnessChoice={this.fitnessGoal}
+          mealsChoice={this.meals}
         />
         <Macros
           age = {this.state.age}
