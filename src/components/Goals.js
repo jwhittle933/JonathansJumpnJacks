@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import GoalsError from './GoalsError'
+
 class Goals extends Component {
     constructor(props){
         super(props)
@@ -13,7 +15,9 @@ class Goals extends Component {
                 three:false,
                 five:false,
                 seven:false
-            }
+            },
+            fitnessError: this.props.fitnessError,
+            mealsError: this.props.mealsError
         }
     }
     render () {
@@ -54,6 +58,14 @@ class Goals extends Component {
                         </tr>
                     </tbody>
                 </table>
+                { this.props.fitnessError ?
+                    <GoalsError  error={this.props.fitnessError}
+                                 errorName="fitness goal"
+                    /> : null }
+                { this.props.mealsError ?
+                    <GoalsError error={this.props.mealsError}
+                                errorName="meal count"
+                    /> : null }
             </div>
         )
     }

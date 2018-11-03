@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import { Button } from 'react-bootstrap'
 
 import BmrInfo from './BmrInfo'
+import GenderError from './GenderError'
 
 class Calulator extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             bmrShow: false
         }
@@ -20,21 +21,26 @@ class Calulator extends Component {
         })
     }
     render () {
-        const { userInput, age, weight, height, activity, clear } =  this.props
-        const display = {
-            display: this.state.bmrShow === false ? 'none' : 'block'
-        }
+        const { userInput, gender,age, weight, height, activity, clear } =  this.props
+
         return (
         <div className="calulator-table" id="tracker">
             <table className="table-fill calc">
                 <thead>
                     <tr>
                         <th>*Enter your information</th>
-                        <th>
-                        </th>
+                        <th><Button bsStyle="info" bsSize="xsmall" onClick={this.toggleBmr}>BMR?</Button>
+                        <Button bsStyle="danger" bsSize="xsmall" onClick={clear}>Clear</Button></th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>Gender</td>
+                        <td>
+                            <label>Male</label><input id="male" defaultValue="male" type="checkbox" onClick={ e => {gender(e.target)}}/>
+                            <label>Female</label><input id="female" defaultValue="female" type="checkbox" onClick={ e => {gender(e.target)}}/>
+                        </td>
+                    </tr>
                     <tr>
                         <td>Age</td>
                         <td><input type="text" value={age} onChange={ e => userInput('age', e.target.value)} /></td>
@@ -52,13 +58,13 @@ class Calulator extends Component {
                         <td><input type="text" value={activity} onChange={ e => userInput('activityLevel', e.target.value)} /></td>
                     </tr>
                     <tr>
-                        <td><Button bsStyle="info" bsSize="xsmall" onClick={this.toggleBmr}>BMR</Button>
-                        <Button bsStyle="danger" bsSize="xsmall" onClick={clear}>Clear</Button></td>
+                        <td></td>
                         <td><h4>{ Math.round((66 + (6.3 * weight) + (12.9 * height) - (6.8 * age)) * activity) }</h4></td>
                     </tr>
                 </tbody>
             </table>
-            <BmrInfo display={display} />
+            { this.state.bmrShow ? <BmrInfo toggleBmr={this.toggleBmr}/> : null }
+            { this.props.error ? <GenderError /> : null }
         </div>
     )}
 }

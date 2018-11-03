@@ -11,6 +11,9 @@ header h2 {
   font-family: Menlo;
   font-size: 1.25em;
 }
+p {
+  font-size: 1.1em;
+}
 .header {
   display: none;
   opacity: .9;
@@ -64,15 +67,6 @@ header h2 {
     border: 2px solid black;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
 }
-/*
-* Controls
-*/
-
-/*
-*
-* Table Styles
-*
-*/
 
 .calulator-table {
   display: inline-block;
@@ -83,15 +77,39 @@ header h2 {
   height: 100vh;
 }
 .bmr {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #2B3A42;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   width: 20vw;
   height: 50vh;
   color:white;
+  font-family: Calibri light;
   position: absolute;
   left: 0;
   top: 110vh;
+  border-top: 3px solid #3F5866;
+  border-right: 3px solid #3F5866;
+  border-bottom: 3px solid #3F5866;
   border-radius: 0 10px 10px 0;
   text-align: center;
+  animation: all 5s infinite;
+}
+#closeButton {
+  width: 7vw;
+  background-color: rgba(180, 49, 49, 0.9);
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: .8rem;
+  font-family: Menlo;
+  position: absolute;
+  bottom: 0;
+}
+#closeButton:hover {
+  cursor: pointer;
+  background-color: rgba(173, 31, 31, 0.9);
+}
+#closeButton:active {
+  cursor: pointer;
+  background-color: rgba(175, 6, 6, 0.9);
 }
 .macros-table{
   display: inline-block;
@@ -117,14 +135,32 @@ header h2 {
   border-radius:3px;
   border-collapse: collapse;
   max-width: 600px;
-  padding:5px;
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  animation: float 5s infinite;
+  /* animation: all 5s infinite; */
 }
 .calc {
+  margin-top: 0px;
   margin-left: auto;
   margin-right: auto;
+}
+#male {
+  margin-left: 1vw;
+  margin-right: 5vw;
+}
+#female {
+  margin-left: 1vw;
+}
+.genderError {
+  text-align: center;
+  background-color: rgba(214, 31, 31, 0.6);
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 50vw;
+  margin-top: 2vh;
+  margin-right:auto;
+  margin-left: auto;
 }
 .goals {
   margin-top: 100px;
@@ -175,7 +211,7 @@ tr:nth-child(odd) td {
 }
 td {
   background:#FFFFFF;
-  padding:20px;
+  padding: 10px;
   text-align:left;
   vertical-align:middle;
   font-weight:300;

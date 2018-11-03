@@ -13,13 +13,17 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      gender: {},
+      genderError: false,
       age: "",
       weight: "",
       height: "",
       activityLevel: "",
       bmr: "",
       fitnessGoal: {},
-      meals: {}
+      fitnessGoalsError: false,
+      meals: {},
+      mealsGoalsError: false,
     }
   }
 
@@ -31,7 +35,28 @@ class App extends Component {
       }
     })
   }
-
+  genderSelector = element => {
+    let selection = element.value
+    let maleSelected = document.querySelector('#male').checked
+    let femaleSelected = document.querySelector('#female').checked
+    let maleChecked = selection === 'male' ? true : false
+    let femaleChecked = selection === 'female' ? true : false
+    if (!maleSelected && !femaleSelected){
+      this.setState(() => { return { gender: {} } })
+    } else if (maleSelected && femaleSelected){
+      this.setState(() => {return { genderError: true }})
+    } else {
+      this.setState(() => {
+        return {
+          genderError: false,
+          gender: {
+            male: maleChecked,
+            female: femaleChecked
+          }
+        }
+      })
+    }
+  }
   userInput = (alpha, beta) => {
     this.setState( () => {
       return {
@@ -39,7 +64,6 @@ class App extends Component {
       }
     })
   }
-
   fitnessGoalSelection = element => {
     let selection = element.value
     let buildSelected = document.querySelector('#build').checked
@@ -50,9 +74,14 @@ class App extends Component {
     let burnChecked = selection === "burn" ? true : false
     if (!buildSelected && !maintainSelected && !burnSelected){
       this.setState(() => { return { fitnessGoal: {} } })
+    } else if ( (buildSelected && maintainSelected) ||
+                (buildSelected && burnSelected) ||
+                ( maintainSelected && burnSelected) ) {
+        this.setState(() => { return { fitnessGoalsError: true } })
     } else {
       this.setState(() => {
         return {
+          fitnessGoalsError: false,
           fitnessGoal: {
             selection: selection,
             build: buildChecked,
@@ -70,9 +99,14 @@ class App extends Component {
     let sevenSelected = document.querySelector('#seven').checked
     if (!threeSelected && !fiveSelected && !sevenSelected){
       this.setState(() => { return { meals: {} } })
+    } else if ((threeSelected && fiveSelected) ||
+                (threeSelected && sevenSelected) ||
+                (fiveSelected && sevenSelected)) {
+        this.setState(() => { return { mealsGoalsError: true } })
     } else {
         this.setState(() => {
         return {
+          mealsGoalsError: false,
           meals: {
             selection: selection,
             three: threeSelected,
@@ -113,22 +147,23 @@ class App extends Component {
           next={this.next}
         />
         <Calulator
-          userAge={this.userAge}
           userInput={this.userInput}
-          userHeight={this.userHeight}
-          userActivityLevel={this.userActivityLevel}
           clear={this.clearUserInput}
           next={this.next}
+          gender={this.genderSelector}
           age={this.state.age}
           weight={this.state.weight}
           height={this.state.height}
           activity={this.state.activityLevel}
+          error={this.state.genderError}
         />
         <Goals
           fitnessGoal={this.fitnessGoalSelection}
           meals={this.mealsSelection}
-          fitnessChoice={this.fitnessGoal}
-          mealsChoice={this.meals}
+          fitnessChoice={this.state.fitnessGoal}
+          mealsChoice={this.state.meals}
+          fitnessError={this.state.fitnessGoalsError}
+          mealsError={this.state.mealsGoalsError}
         />
         <Macros
           age = {this.state.age}

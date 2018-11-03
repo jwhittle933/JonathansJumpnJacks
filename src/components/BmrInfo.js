@@ -6,6 +6,7 @@ class BmrInfo extends Component {
             <div className="bmr" style={this.props.display}>
                 <h2>BMR Info</h2>
                 <p>BMR (Basal Metabolic Rate) is the calculation of your body's caloric expenditure for a single day. </p>
+                <p id="closeButton" onClick={this.props.toggleBmr}>[close]</p>
             </div>
         )
     }
