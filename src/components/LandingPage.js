@@ -3,14 +3,9 @@ import PropTypes from 'prop-types'
 import { Button } from 'react-bootstrap'
 
 class LandingPage extends Component {
-  scrollTo = () => {
-    window.scroll({
-      top: 575,
-      behavior: "smooth"
-    })
-  }
+
   render (){
-    const { title } = this.props
+    const { title, next } = this.props
     return (
         <div className="landing-page">
           <h1>{title}</h1>
@@ -18,7 +13,7 @@ class LandingPage extends Component {
             <Button bsStyle="default"
                     className="App-link"
                     rel="noopener noreferrer"
-                    onClick={this.scrollTo} >Start Calculating</Button>
+                    onClick={() => next('#tracker')} >Start Calculating</Button>
           </p>
         </div>
     )}

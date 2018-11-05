@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button } from 'react-bootstrap'
 
 import GoalsError from './GoalsError'
 
@@ -21,7 +22,7 @@ class Goals extends Component {
         }
     }
     render () {
-        const { fitnessGoal, meals } = this.props
+        const { next, clear, fitnessGoal, meals } = this.props
         return (
             <div className="goals-table">
                 <table className="table-fill goals">
@@ -55,6 +56,10 @@ class Goals extends Component {
                             <td className="center">
                             <label>7</label>
                             <input id="seven" defaultValue="7" type="checkbox" onClick={(e) => meals(e.target)} defaultChecked={this.state.mealsChoice.seven} /></td>
+                        </tr>
+                        <tr>
+                            <td><Button bsStyle="success" bsSize="xsmall" onClick={() => next('.macros-table')}>Next</Button><Button bsStyle="danger" bsSize="xsmall" onClick={clear}>Clear</Button></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>

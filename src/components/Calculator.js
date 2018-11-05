@@ -20,8 +20,9 @@ class Calulator extends Component {
             }
         })
     }
+
     render () {
-        const { userInput, gender,age, weight, height, activity, clear } =  this.props
+        const { userInput, genderSelection, gender, age, weight, height, activity, clear, next } =  this.props
 
         return (
         <div className="calulator-table" id="tracker">
@@ -29,21 +30,20 @@ class Calulator extends Component {
                 <thead>
                     <tr>
                         <th>*Enter your information</th>
-                        <th><Button bsStyle="info" bsSize="xsmall" onClick={this.toggleBmr}>BMR?</Button>
-                        <Button bsStyle="danger" bsSize="xsmall" onClick={clear}>Clear</Button></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Gender</td>
                         <td>
-                            <label>Male</label><input id="male" defaultValue="male" type="checkbox" onClick={ e => {gender(e.target)}}/>
-                            <label>Female</label><input id="female" defaultValue="female" type="checkbox" onClick={ e => {gender(e.target)}}/>
+                            <label>Male</label><input id="male" defaultValue="male" type="checkbox" onClick={ e => gender(e.target)}/>
+                            <label>Female</label><input id="female" defaultValue="female" type="checkbox" onClick={ e => gender(e.target)}/>
                         </td>
                     </tr>
                     <tr>
                         <td>Age</td>
-                        <td><input type="text" value={age} onChange={ e => userInput('age', e.target.value)} /></td>
+                        <td><input type="text" value={age} onChange = { e => userInput('age', e.target.value)} /></td>
                     </tr>
                     <tr>
                         <td>Weight</td>
@@ -58,8 +58,13 @@ class Calulator extends Component {
                         <td><input type="text" value={activity} onChange={ e => userInput('activityLevel', e.target.value)} /></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td><h4>{ Math.round((66 + (6.3 * weight) + (12.9 * height) - (6.8 * age)) * activity) }</h4></td>
+                        <td><Button bsStyle="success" bsSize="xsmall" onClick={() => next('.goals-table')}>Next</Button><Button bsStyle="danger" bsSize="xsmall" onClick={clear}>Clear</Button><Button bsStyle="info" bsSize="xsmall" onClick={this.toggleBmr}>BMR?</Button></td>
+                        <td><h5>
+                            { (genderSelection.male === true) ?
+                                Math.round((66 + (6.3 * weight) + (12.9 * height) - (6.8 * age)) * activity) : (genderSelection.female === true) ?
+                                Math.round((655 + (4.3 * weight) + (4.7 * height) - (4.7 * age)) * activity) : 0
+                            }
+                        </h5></td>
                     </tr>
                 </tbody>
             </table>

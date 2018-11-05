@@ -80,9 +80,10 @@ p {
   background-color: #2B3A42;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   width: 20vw;
-  height: 50vh;
+  height: 60vh;
   color:white;
   font-family: Calibri light;
+  line-height: 1.1;
   position: absolute;
   left: 0;
   top: 110vh;
@@ -91,7 +92,6 @@ p {
   border-bottom: 3px solid #3F5866;
   border-radius: 0 10px 10px 0;
   text-align: center;
-  animation: all 5s infinite;
 }
 #closeButton {
   width: 7vw;
@@ -117,7 +117,7 @@ p {
   border-bottom: 2px solid black;
   width: 100vw;
   padding: 50px;
-  min-height: 75vh;
+  min-height: 100vh;
 }
 .goals-table {
   display: inline-block;
@@ -167,11 +167,35 @@ p {
   margin-left: auto;
   margin-right: auto;
 }
+#build, #maintain, #burn {
+  margin-left: 2vw;
+}
+#three, #five, #seven {
+  margin-left: 1vw;
+}
 .macros {
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  min-height: 75vh;
+  height: 65vh;
+  float: right;
+  clear: right;
+}
+.user-macros {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 65vh;
+  max-width: 40vw;
+  float: left;
+  clear: left;
+}
+.meal-plan {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60vh;
+  min-width: 75vw;
 }
 th {
   color:#D5DDE5;;

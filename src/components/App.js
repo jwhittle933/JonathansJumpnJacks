@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 import Header from './Header'
 import LandingPage from './LandingPage'
 import Calulator from './Calculator'
-// import Info from './Info'
 import Goals from './Goals'
 import Macros from './Macros'
+import MealPlan from './MealPlan'
 import ErrorBoundary from './ErrorBoundary'
 
 
@@ -26,15 +26,6 @@ class App extends Component {
       mealsGoalsError: false,
     }
   }
-
-  fitnessCaluclator = (weight, height, age, activity) => {
-    let bmr = Math.round((66 + (6.3 * weight) + (12.9 * height) - (6.8 * age)) * activity)
-    this.setState( () => {
-      return {
-        bmr: bmr
-      }
-    })
-  }
   genderSelector = element => {
     let selection = element.value
     let maleSelected = document.querySelector('#male').checked
@@ -42,7 +33,7 @@ class App extends Component {
     let maleChecked = selection === 'male' ? true : false
     let femaleChecked = selection === 'female' ? true : false
     if (!maleSelected && !femaleSelected){
-      this.setState(() => { return { gender: {} } })
+      this.setState(() => { return { gender: "" } })
     } else if (maleSelected && femaleSelected){
       this.setState(() => {return { genderError: true }})
     } else {
@@ -73,7 +64,7 @@ class App extends Component {
     let maintainChecked = selection === "maintain" ? true : false
     let burnChecked = selection === "burn" ? true : false
     if (!buildSelected && !maintainSelected && !burnSelected){
-      this.setState(() => { return { fitnessGoal: {} } })
+      this.setState(() => { return { fitnessGoal: "" } })
     } else if ( (buildSelected && maintainSelected) ||
                 (buildSelected && burnSelected) ||
                 ( maintainSelected && burnSelected) ) {
@@ -98,7 +89,7 @@ class App extends Component {
     let fiveSelected = document.querySelector('#five').checked
     let sevenSelected = document.querySelector('#seven').checked
     if (!threeSelected && !fiveSelected && !sevenSelected){
-      this.setState(() => { return { meals: {} } })
+      this.setState(() => { return { meals: "" } })
     } else if ((threeSelected && fiveSelected) ||
                 (threeSelected && sevenSelected) ||
                 (fiveSelected && sevenSelected)) {
@@ -118,8 +109,11 @@ class App extends Component {
     }
   }
   clearUserInput = () => {
+    document.querySelector('#male').checked = false
+    document.querySelector('#female').checked = false
     this.setState( () => {
       return {
+        genderError: false,
         age: "",
         weight: "",
         height: "",
@@ -127,17 +121,30 @@ class App extends Component {
       }
     })
   }
-  next = () => {
-    document.getElementById('header').scrollIntoView({ behavior: 'smooth'})
+  clearGoalsInput = () => {
+    document.querySelector('#build').checked = false
+    document.querySelector('#maintain').checked = false
+    document.querySelector('#burn').checked = false
+    document.querySelector('#three').checked = false
+    document.querySelector('#five').checked = false
+    document.querySelector('#seven').checked = false
+    this.setState(() => {
+      return {
+        fitnessGoal: "",
+        meals: ""
+      }
+    })
   }
+  next = param => {
+    document.querySelector(param).scrollIntoView({ behavior: 'smooth'})
+  }
+
+
   render() {
     return (
       <div>
         <ErrorBoundary />
-        <Header
-          next={this.next}
-          clear={this.clearUserInput}
-        />
+        <Header />
         <LandingPage
           title="Jonathan's Jump'n Jacks"
           age={this.state.age}
@@ -150,6 +157,7 @@ class App extends Component {
           userInput={this.userInput}
           clear={this.clearUserInput}
           next={this.next}
+          genderSelection={this.state.gender}
           gender={this.genderSelector}
           age={this.state.age}
           weight={this.state.weight}
@@ -158,21 +166,23 @@ class App extends Component {
           error={this.state.genderError}
         />
         <Goals
+          next={this.next}
+          clear={this.clearGoalsInput}
           fitnessGoal={this.fitnessGoalSelection}
           meals={this.mealsSelection}
-          fitnessChoice={this.state.fitnessGoal}
-          mealsChoice={this.state.meals}
           fitnessError={this.state.fitnessGoalsError}
           mealsError={this.state.mealsGoalsError}
         />
         <Macros
-          age = {this.state.age}
-          height = {this.state.height}
-          weight = {this.state.weight}
-          activity = {this.state.activityLevel}
-          next = {this.next}
-          clear={this.clearUserInput}
+          age={this.state.age}
+          weight={this.state.weight}
+          height={this.state.height}
+          activity={this.state.activityLevel}
+          fitnessSelection={this.state.fitnessGoal}
+          mealsSelection={this.state.meals}
+          genderSelection={this.state.gender}
         />
+        <MealPlan />
       </div>
     )
   }
