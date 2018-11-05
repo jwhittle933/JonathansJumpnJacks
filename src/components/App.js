@@ -174,6 +174,7 @@ class App extends Component {
           mealsError={this.state.mealsGoalsError}
         />
         <Macros
+          next={this.next}
           age={this.state.age}
           weight={this.state.weight}
           height={this.state.height}

@@ -37,7 +37,7 @@ class Calulator extends Component {
                     <tr>
                         <td>Gender</td>
                         <td>
-                            <label>Male</label><input id="male" defaultValue="male" type="checkbox" onClick={ e => gender(e.target)}/>
+                            <label>Male</label><input id="male" defaultValue="male" type="checkbox" onClick={ e => gender(e.target)} />
                             <label>Female</label><input id="female" defaultValue="female" type="checkbox" onClick={ e => gender(e.target)}/>
                         </td>
                     </tr>
@@ -58,7 +58,7 @@ class Calulator extends Component {
                         <td><input type="text" value={activity} onChange={ e => userInput('activityLevel', e.target.value)} /></td>
                     </tr>
                     <tr>
-                        <td><Button bsStyle="success" bsSize="xsmall" onClick={() => next('.goals-table')}>Next</Button><Button bsStyle="danger" bsSize="xsmall" onClick={clear}>Clear</Button><Button bsStyle="info" bsSize="xsmall" onClick={this.toggleBmr}>BMR?</Button></td>
+                        <td><Button bsStyle="success" bsSize="xsmall" onClick={() => next('.goals-table')}>Go to Goals</Button><Button bsStyle="danger" bsSize="xsmall" onClick={clear}>Clear</Button><Button bsStyle="info" bsSize="xsmall" onClick={this.toggleBmr}>BMR?</Button></td>
                         <td><h5>
                             { (genderSelection.male === true) ?
                                 Math.round((66 + (6.3 * weight) + (12.9 * height) - (6.8 * age)) * activity) : (genderSelection.female === true) ?

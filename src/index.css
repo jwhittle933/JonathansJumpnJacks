@@ -127,6 +127,14 @@ p {
   padding: 50px;
   height: 100vh;
 }
+.meal-plan-table{
+  display: inline-block;
+  background-color: #D8D0C5;
+  border-bottom: 2px solid black;
+  width: 100vw;
+  padding: 50px;
+  min-height: 100vh;
+}
 .center {
   text-align: center;
 }

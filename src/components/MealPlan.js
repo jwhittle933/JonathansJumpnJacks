@@ -5,7 +5,7 @@ class MealPlan extends Component {
     render () {
 
         return (
-        <div className="macros-table" id="tracker">
+        <div className="meal-plan-table" id="tracker">
             <table className="table-fill meal-plan">
                 <thead>
                     <tr>
@@ -39,6 +39,12 @@ class MealPlan extends Component {
                     </tr>
                     <tr>
                         <td className="center">Meal 4</td>
+                        <td className="center"><b>50 g</b> Protein Shake</td>
+                        <td className="center"><b>1 large</b> Fruit</td>
+                        <td className="center"><b>2 tbsp</b> Peanut Butter</td>
+                    </tr>
+                    <tr>
+                        <td className="center">Meal 5</td>
                         <td className="center"><b>50 g</b> Protein Shake</td>
                         <td className="center"><b>1 large</b> Fruit</td>
                         <td className="center"><b>2 tbsp</b> Peanut Butter</td>

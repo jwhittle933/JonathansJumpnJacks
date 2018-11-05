@@ -58,7 +58,7 @@ class Goals extends Component {
                             <input id="seven" defaultValue="7" type="checkbox" onClick={(e) => meals(e.target)} defaultChecked={this.state.mealsChoice.seven} /></td>
                         </tr>
                         <tr>
-                            <td><Button bsStyle="success" bsSize="xsmall" onClick={() => next('.macros-table')}>Next</Button><Button bsStyle="danger" bsSize="xsmall" onClick={clear}>Clear</Button></td>
+                            <td><Button bsStyle="success" bsSize="xsmall" onClick={() => next('.macros-table')}>Go to Macros</Button><Button bsStyle="danger" bsSize="xsmall" onClick={clear}>Clear</Button></td>
                             <td></td>
                         </tr>
                     </tbody>
