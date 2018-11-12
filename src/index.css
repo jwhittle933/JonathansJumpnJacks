@@ -76,22 +76,55 @@ p {
   padding: 50px;
   height: 100vh;
 }
+
 .bmr {
-  background-color: #2B3A42;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  width: 20vw;
-  height: 60vh;
-  color:white;
-  font-family: Calibri light;
-  line-height: 1.1;
+  background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
-  left: 0;
-  top: 110vh;
-  border-top: 3px solid #3F5866;
-  border-right: 3px solid #3F5866;
-  border-bottom: 3px solid #3F5866;
-  border-radius: 0 10px 10px 0;
+  z-index: 20;
+  height: 100%;
+  width: 100%;
+  color:black;
+  font-family: Calibri light;
+  top: 100vh;
+  left: 0vw;
+  margin: 0;
   text-align: center;
+  animation: fadein .4s ease-in;
+}
+@keyframes fadein {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: .5;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.bmr-content {
+  position: relative;
+  top: 15vh;
+  left: 25vw;
+  width: 50vw;
+  height: 50vh;
+  padding: 2vw;
+  border: 3px solid #3F5866;
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+  animation: slide-left .4s ease-in;
+}
+@keyframes slide-left {
+  0%{
+    left: 100vw;
+  }
+  50%{
+    left: 20vw;
+  }
+  100%{
+    left:25vw;
+  }
 }
 #closeButton {
   width: 7vw;
@@ -148,7 +181,7 @@ p {
   /* animation: all 5s infinite; */
 }
 .calc {
-  margin-top: 0px;
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
 }

@@ -131,7 +131,9 @@ class App extends Component {
     this.setState(() => {
       return {
         fitnessGoal: "",
-        meals: ""
+        fitnessGoalsError: false,
+        meals: "",
+        mealsGoalsError: false,
       }
     })
   }

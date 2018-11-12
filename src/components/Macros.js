@@ -28,54 +28,45 @@ class Macros extends Component {
                 <thead>
                     <tr>
                         <th className="center">User Selections</th>
-                        <th className="center"><Button bsStyle="success" bsSize="xsmall" onClick={() => next('.meal-plan-table')}>Go to Meal Plan</Button></th>
-                        <th className="center"></th>
+                        <th className="center"><Button bsStyle="success" bsSize="small" onClick={() => next('.meal-plan-table')}>Go to Meal Plan</Button></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td className="center">Gender</td>
                         <td className="center" >{gender}</td>
-                        <td className="center"></td>
                     </tr>
                     <tr>
                         <td className="center">Age</td>
                         <td className="center">{age}</td>
-                        <td className="center"></td>
                     </tr>
                     <tr>
                         <td className="center">Weight</td>
                         <td className="center">{weight}</td>
-                        <td className="center"></td>
                     </tr>
                     <tr>
                         <td className="center">Height</td>
                         <td className="center">{height}</td>
-                        <td className="center"></td>
                     </tr>
                     <tr>
                         <td className="center">Activity Level</td>
                         <td className="center">{activity}</td>
-                        <td className="center"></td>
                     </tr>
                     <tr>
                         <td className="center">BMR</td>
                         <td className="center" >{bmr}</td>
-                        <td className="center"></td>
                     </tr>
                     <tr>
                         <td className="center">Fitness Goal</td>
                         <td className="center">
                             {fitnessSelection.selection ?
                             fitnessSelection.selection : ''}</td>
-                        <td className="center"></td>
                     </tr>
                     <tr>
                         <td className="center">Meals/Day</td>
                         <td className="center">
                             {mealsSelection.selection ?
                              mealsSelection.selection : ''}</td>
-                        <td className="center"></td>
                     </tr>
                 </tbody>
             </table>

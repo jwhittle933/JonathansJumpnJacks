@@ -58,7 +58,7 @@ class Calulator extends Component {
                         <td><input type="text" value={activity} onChange={ e => userInput('activityLevel', e.target.value)} /></td>
                     </tr>
                     <tr>
-                        <td><Button bsStyle="success" bsSize="xsmall" onClick={() => next('.goals-table')}>Go to Goals</Button><Button bsStyle="danger" bsSize="xsmall" onClick={clear}>Clear</Button><Button bsStyle="info" bsSize="xsmall" onClick={this.toggleBmr}>BMR?</Button></td>
+                        <td><Button bsStyle="success" bsSize="small" onClick={() => next('.goals-table')}>Go to Goals</Button><Button bsStyle="danger" bsSize="small" onClick={clear}>Clear</Button><Button bsStyle="info" bsSize="small" onClick={this.toggleBmr}>BMR?</Button></td>
                         <td><h5>
                             { (genderSelection.male === true) ?
                                 Math.round((66 + (6.3 * weight) + (12.9 * height) - (6.8 * age)) * activity) : (genderSelection.female === true) ?
@@ -68,8 +68,12 @@ class Calulator extends Component {
                     </tr>
                 </tbody>
             </table>
-            { this.state.bmrShow ? <BmrInfo toggleBmr={this.toggleBmr}/> : null }
-            { this.props.error ? <GenderError /> : null }
+            { this.state.bmrShow ?
+                <BmrInfo toggleBmr={this.toggleBmr}/> : null
+            }
+            { this.props.error ?
+                <GenderError /> : null
+            }
         </div>
     )}
 }
