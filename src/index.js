@@ -1,13 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-window.jQuery = $;
-window.$ = $;
-global.jQuery = $;
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -16,14 +12,12 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-/*///////
-/////////jQuery Animations
-///////*/
-$(document).scroll(function() {
-    var y = $(this).scrollTop()
-    if (y > 300){
-        $('.header').slideDown()
-    } else {
-        $('.header').slideUp()
-    }
+
+let lastTop =  500
+document.addEventListener('scroll', ()=> {
+    let currentTop = window.pageYOffset || document.body.scrollTop
+    currentTop > lastTop ?
+        document.querySelector('.header').style.display = "block" :
+        document.querySelector('.header').style.display = "none"
+    lastTop = window.pageYOffset || document.body.scrollTop
 })
