@@ -10,6 +10,10 @@ body {
 header h2 {
   font-family: Menlo;
   font-size: 1.25em;
+  -webkit-animation: text-fade .5s ease-in-out;
+  -moz-animation: text-fade .5s ease-in-out;
+  -o-animation: text-fade .5s ease-in-out;
+  animation: text-fade .5s ease-in-out;
 }
 p {
   font-size: 1.1em;
@@ -28,14 +32,10 @@ p {
   font-family: Calibri light;
   border-bottom: 2px solid #3F5866;
   z-index: 2;
-  animation: fadein .6s ease-in;
   -webkit-animation: fadein .6s ease-in;
   -moz-animation: fadein .6s ease-in;
   -o-animation: fadein .6s ease-in;
-}
-.float {
-  float: right;
-  clear: right;
+  animation: fadein .6s ease-in;
 }
 .landing-page {
   text-align: center;
@@ -48,6 +48,10 @@ p {
   font-size: calc(10px + 2vmin);
   color: white;
   border-bottom: 2px solid black;
+  /* -webkit-clip-path: polygon(0 0, 1600px 0, 1600px 87%, 0 100%);
+  clip-path: polygon(0 0, 1600px 0, 1600px 87%, 0 100%); */
+  /* transform: skewY(-1.5deg); */
+  /* transform-origin: 100%; */
 }
 .landing-page h1 {
   font-family: Calibri light;
@@ -91,6 +95,9 @@ p {
   left: 0vw;
   margin: 0;
   text-align: center;
+  -webkit-animation: fadein .6s ease-in;
+  -moz-animation: fadein .6s ease-in;
+  -o-animation: fadein .6s ease-in;
   animation: fadein .5s ease-in;
 }
 .bmr-content {
@@ -104,6 +111,9 @@ p {
   border-radius: 10px;
   background-color: white;
   overflow: hidden;
+  -webkit-animation: slide-down .6s ease-in;
+  -moz-animation: slide-down .6s ease-in;
+  -o-animation: slide-down .6s ease-in;
   animation: slide-down .4s ease-in;
 }
 #closeButton {
@@ -294,11 +304,13 @@ td {
   }
 }
 @keyframes text-fade {
-  from{
-
+  0% {
+    letter-spacing: 30px;
+    /* transform: skewX(-30deg) */
   }
-  to {
-
+  100% {
+    letter-spacing: 1px;
+    /* transform: skewX(0) */
   }
 }
 
